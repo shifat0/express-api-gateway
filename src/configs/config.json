@@ -1,7 +1,7 @@
 {
     "services": {
         "auth": {
-            "endpoint": "/api/v1/auth",
+            "endpoint": "/auth",
             "port": "5000",
             "auth": false,
             "rateLimit": {
