@@ -13,7 +13,7 @@ const app = express();
 
 // middlewares
 app.use(express.json());
-app.use(cors(corsConfigOptions));
+app.use(cors());
 app.use(logRequests);
 app.use(helmet());
 app.use(rateLimiter);
@@ -23,7 +23,10 @@ proxyHandler(app);
 
 // Health Route
 app.get('/health', (_req, res: Response) => {
-    res.status(200).send('api gateway is online');
+    res.status(200).json({
+        status: 'Up',
+        message: 'API Gateway is running'
+    });
 });
 
 // error handler
