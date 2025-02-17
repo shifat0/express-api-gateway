@@ -10,7 +10,7 @@ export default function proxyHandler(app: Application) {
         const proxy = createProxyMiddleware({
             target: `http://localhost:${service.port}`,
             changeOrigin: true,
-            pathFilter: `${envConfig.API_VERSION}${service.endpoint}`,
+            pathFilter: `${service.endpoint}`,
             // pathRewrite: { [`^${envConfig.API_VERSION}`]: '' },
             logger: logger,
             on: {
